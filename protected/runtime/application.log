@@ -37,3 +37,25 @@ Stack trace:
 REQUEST_URI=/yiiguru/
 in G:\Environment\wamp\www\yiiguru\protected\controllers\UserController.php (37)
 in G:\Environment\wamp\www\yiiguru\index.php (16)
+2014/07/31 09:12:56 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "G:\Environment\wamp\www\yiiguru\assets" không hợp lệ. Hãy chắc rằng thư mục này có tồn tại và được phép ghi bởi Web server.' in G:\Environment\wamp\www\framework\web\CAssetManager.php:138
+Stack trace:
+#0 G:\Environment\wamp\www\framework\web\CAssetManager.php(123): CAssetManager->setBasePath('G:\Environment\...')
+#1 G:\Environment\wamp\www\framework\web\CAssetManager.php(217): CAssetManager->getBasePath()
+#2 G:\Environment\wamp\www\framework\web\CClientScript.php(510): CAssetManager->publish('G:\Environment\...')
+#3 G:\Environment\wamp\www\framework\web\CClientScript.php(547): CClientScript->getCoreScriptUrl()
+#4 G:\Environment\wamp\www\framework\web\CClientScript.php(348): CClientScript->getPackageBaseUrl('jquery')
+#5 G:\Environment\wamp\www\framework\web\CClientScript.php(208): CClientScript->renderCoreScripts()
+#6 G:\Environment\wamp\www\framework\web\CController.php(351): CClientScript->render('<!DOCTYPE html ...')
+#7 G:\Environment\wamp\www\framework\web\CController.php(788): CController->processOutput('<!DOCTYPE html ...')
+#8 G:\Environment\wamp\www\yiiguru\protected\controllers\UserController.php(43): CController->render('list', Array)
+#9 G:\Environment\wamp\www\framework\web\actions\CInlineAction.php(49): UserController->actionListUser()
+#10 G:\Environment\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 G:\Environment\wamp\www\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 G:\Environment\wamp\www\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 G:\Environment\wamp\www\framework\web\CWebApplication.php(282): CController->run('')
+#14 G:\Environment\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#15 G:\Environment\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 G:\Environment\wamp\www\yiiguru\index.php(16): CApplication->run()
+#17 {main}
+REQUEST_URI=/yiiguru/
+---
