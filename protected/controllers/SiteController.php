@@ -112,6 +112,7 @@ class SiteController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
+        //homeURL se duoc config tai file main.php
 		$this->redirect(Yii::app()->homeUrl);
 	}
 }
