@@ -23,3 +23,17 @@ REQUEST_URI=/yiiguru/index.php?r=site/contact
 in E:\OpenServer\domains\localhost\yiiguru\protected\views\site\contact.php (38)
 in E:\OpenServer\domains\localhost\yiiguru\protected\controllers\SiteController.php (77)
 in E:\OpenServer\domains\localhost\yiiguru\index.php (16)
+2014/07/31 08:58:51 [error] [php] include(User1.php): failed to open stream: No such file or directory (G:\Environment\wamp\www\framework\YiiBase.php:427)
+Stack trace:
+#0 G:\Environment\wamp\www\yiiguru\protected\controllers\UserController.php(37): spl_autoload_call()
+#1 G:\Environment\wamp\www\framework\web\actions\CInlineAction.php(49): UserController->actionListUser()
+#2 G:\Environment\wamp\www\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 G:\Environment\wamp\www\framework\web\CController.php(286): UserController->runAction()
+#4 G:\Environment\wamp\www\framework\web\CController.php(265): UserController->runActionWithFilters()
+#5 G:\Environment\wamp\www\framework\web\CWebApplication.php(282): UserController->run()
+#6 G:\Environment\wamp\www\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 G:\Environment\wamp\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 G:\Environment\wamp\www\yiiguru\index.php(16): CWebApplication->run()
+REQUEST_URI=/yiiguru/
+in G:\Environment\wamp\www\yiiguru\protected\controllers\UserController.php (37)
+in G:\Environment\wamp\www\yiiguru\index.php (16)

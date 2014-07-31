@@ -2,13 +2,6 @@
 
 class SiteController extends Controller
 {
-    public function init(){
-        // register class paths for extension captcha extended
-        Yii::$classMap = array_merge( Yii::$classMap, array(
-            'CaptchaExtendedAction' => Yii::getPathOfAlias('ext.captchaExtended').DIRECTORY_SEPARATOR.'CaptchaExtendedAction.php',
-            'CaptchaExtendedValidator' => Yii::getPathOfAlias('ext.captchaExtended').DIRECTORY_SEPARATOR.'CaptchaExtendedValidator.php'
-        ));
-    }
 	/**
 	 * Declares class-based actions.
 	 */
@@ -16,15 +9,10 @@ class SiteController extends Controller
 	{
 		return array(
 			// captcha action renders the CAPTCHA image displayed on the contact page
-//			'captcha'=>array(
-//				'class'=>'CCaptchaAction',
-//				'backColor'=>0xFFFFFF,
-//			),
-            'captcha'=>array(
-                'class'=>'CaptchaExtendedAction',
-                // if needed, modify settings
-                'mode'=>CaptchaExtendedAction::MODE_MATH,
-            ),
+			'captcha'=>array(
+				'class'=>'CCaptchaAction',
+				'backColor'=>0xFFFFFF,
+			),
 			// page action renders "static" pages stored under 'protected/views/site/pages'
 			// They can be accessed via: index.php?r=site/page&view=FileName
 			'page'=>array(
@@ -34,6 +22,7 @@ class SiteController extends Controller
 	}
 
 	/**
+     * @SonHA: Day la action mac dinh
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
@@ -63,6 +52,7 @@ class SiteController extends Controller
 	 */
 	public function actionContact()
 	{
+//        var_dump(Yii::app()->user->son);die;
 		$model=new ContactForm;
 		if(isset($_POST['ContactForm']))
 		{
@@ -76,9 +66,10 @@ class SiteController extends Controller
 					"MIME-Version: 1.0\r\n".
 					"Content-Type: text/plain; charset=UTF-8";
 
-				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
+//				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
+//                Yii::app()->user->setFlash('site', 'thong bao rat hay');
 				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
-				$this->refresh();
+//				$this->refresh();
 			}
 		}
 		$this->render('contact',array('model'=>$model));
