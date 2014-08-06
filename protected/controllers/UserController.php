@@ -170,6 +170,9 @@ class UserController extends Controller{
         Util::sendEmail('hason61vn@gmail.com', 'Test email', 'ay la contentD');
     }
 
+    public function actionSendGmailUser() {
+        Util::sendEmailGmail('hason61vn@gmail.com', 'Test email', 'ay la contentD');
+    }
 
     /**
      * Function ActiveUser
