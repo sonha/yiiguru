@@ -24,7 +24,7 @@ function render($view, $vars)
 <body style="background-color:#e5eecc;margin: 0;" cz-shortcut-listen="true">
 <div id="lecture" style="padding: 37px 550px;">
     <a href="demo">List bài tập</a>
-    <a href="index.php">Admin</a>
+    <a href="index.php">Trang chủ</a>
 </div>
 <div id='content'>
     <?php
