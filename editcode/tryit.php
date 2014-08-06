@@ -1,32 +1,56 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>child demo</title>
-  <style>
-  body {
-    font-size: 14px;
-  }
-      </style>
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-</head>
-<body>
+<?php 
  
-<ul class="topnav">
-  <li>Item 1</li>
-  <li>Item 2
-    <ul>
-    <li>Nested item 1</li>
-    <li>Nested item 2</li>
-    <li>Nested item 3</li>
-    </ul>
-  </li>
-  <li>Item 3</li>
-</ul>
+class MyClass 
+{ 
+    public $prop1 = "I'm a class property!"; 
  
-<script>
-$( "ul.topnav > li" ).css( "border", "3px double red" );
-</script>
+    public function __construct() 
+    { 
+        echo 'The class "', __CLASS__, '" was initiated!<br />'; 
+    } 
  
-</body>
-</html>
+    public function __destruct() 
+    { 
+        echo 'The class "', __CLASS__, '" was destroyed.<br />'; 
+    } 
+ 
+    public function __toString() 
+    { 
+        echo "Using the toString method: "; 
+        return $this->getProperty(); 
+    } 
+ 
+    public function setProperty($newval) 
+    { 
+        $this->prop1 = $newval; 
+    } 
+ 
+    public function getProperty() 
+    { 
+        return $this->prop1 . "<br />"; 
+    } 
+} 
+ 
+class MyOtherClass extends MyClass 
+{ 
+     public function __construct() 
+    { 
+        echo 'Day la mot ham khoi tao cua "', __CLASS__, '" ham khoi tao khac!<br />'; 
+    } 
+    
+    public function newMethod() 
+    { 
+        echo 'From a new method in "', __CLASS__, '".<br />'; 
+    } 
+} 
+ 
+// Tạo đối tượng 
+$newobj = new MyOtherClass; 
+ 
+// Echo object ra dạng chuỗi 
+echo $newobj->newMethod(); 
+ 
+// Sử dụng một phương thức của class cha 
+echo $newobj->getProperty(); 
+ 
+?>
