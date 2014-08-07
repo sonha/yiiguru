@@ -1,56 +1,31 @@
-<?php 
- 
-class MyClass 
-{ 
-    public $prop1 = "I'm a class property!"; 
- 
-    public function __construct() 
-    { 
-        echo 'The class "', __CLASS__, '" was initiated!<br />'; 
-    } 
- 
-    public function __destruct() 
-    { 
-        echo 'The class "', __CLASS__, '" was destroyed.<br />'; 
-    } 
- 
-    public function __toString() 
-    { 
-        echo "Using the toString method: "; 
-        return $this->getProperty(); 
-    } 
- 
-    public function setProperty($newval) 
-    { 
-        $this->prop1 = $newval; 
-    } 
- 
-    public function getProperty() 
-    { 
-        return $this->prop1 . "<br />"; 
-    } 
-} 
- 
-class MyOtherClass extends MyClass 
-{ 
-     public function __construct() 
-    { 
-        echo 'Day la mot ham khoi tao cua "', __CLASS__, '" ham khoi tao khac!<br />'; 
-    } 
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div id="sonha"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     
-    public function newMethod() 
-    { 
-        echo 'From a new method in "', __CLASS__, '".<br />'; 
-    } 
-} 
- 
-// Tạo đối tượng 
-$newobj = new MyOtherClass; 
- 
-// Echo object ra dạng chuỗi 
-echo $newobj->newMethod(); 
- 
-// Sử dụng một phương thức của class cha 
-echo $newobj->getProperty(); 
- 
-?>
+  <script type="text/javascript">
+  $(document).ready(function(){ 
+  $.ajax({
+  url : "http://api.flickr.com/services/feeds/photos_public.gne?tags=resig&tagmode=all&format=json&jsoncallback=?",
+  dataType : "json",
+  success : function(data) {
+  $.each(data.items, function(i, item){
+  console.log(status);
+  $( "<img />" ).attr( {title: function() {
+  return i + " - photo by Kelly Clark";
+}, src: item.media.m}).appendTo("#sonha");
+    // $("<img />").attr("src", item.media.m).appendTo('#sonha');
+    // $("<img />").attr({src: item.media.m, alt : item.title, title : item.title}).appendTo('#sonha');
+  });
+  }, 
+  error: function (data, status) {
+  console.log(status);
+    console.log("In local error callback.");
+  }
+
+  });
+  });
+  </script>
+</body>
+</html>
